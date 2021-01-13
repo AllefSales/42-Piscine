@@ -10,31 +10,38 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-##include <unistd.h>
+#include <stdbool.h>
+#include <unistd.h>
 
-void	convert_hex(int num)
+void	ft_putchar(char c)
 {
-	char	*hex;
+	write(1, &c, 1);
+}
 
-	hex = "0123456789abcdef";
-	write(1, &hex[num / 16], 1);
-	write(1, &hex[num % 16], 1);
+bool	is_char_printable(char c)
+{
+	return (c >= ' ' && c != 127);
 }
 
 void	ft_putstr_non_printable(char *str)
 {
-	int		i;
+	int				index;
+	unsigned char	current;
 
-	i = 0;
-	while (str[i])
+	index = 0;
+	while (true)
 	{
-		if (str[i] >= 0 && str[i] <= 31)
-		{
-			write(1, "\\", 1);
-			convert_hex(str[i]);
-		}
+		current = str[index];
+		if (current == '\0')
+			break ;
+		if (is_char_printable(current))
+			ft_putchar(current);
 		else
-			write(1, &str[i], 1);
-		i++;
+		{
+			ft_putchar('\\');
+			ft_putchar("0123456789abcdef"[current / 16]);
+			ft_putchar("0123456789abcdef"[current % 16]);
+		}
+		index++;
 	}
 }
