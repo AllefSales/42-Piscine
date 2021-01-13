@@ -1,0 +1,5 @@
+Credentials cache: API:AAA5C9DA-3E93-4EAE-A2DA-348557ECAA65
+        Principal: asales-f@42LISBOA.COM
+
+  Issued                Expires               Principal
+Jan  7 21:27:33 2021  Jan  8 07:27:27 2021  krbtgt/42LISBOA.COM@42LISBOA.COM
