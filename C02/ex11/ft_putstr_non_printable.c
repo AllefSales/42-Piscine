@@ -10,9 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+##include <unistd.h>
 
-void	convert(int num)
+void	convert_hex(int num)
 {
 	char	*hex;
 
@@ -31,7 +31,7 @@ void	ft_putstr_non_printable(char *str)
 		if (str[i] >= 0 && str[i] <= 31)
 		{
 			write(1, "\\", 1);
-			convert(str[i]);
+			convert_hex(str[i]);
 		}
 		else
 			write(1, &str[i], 1);
